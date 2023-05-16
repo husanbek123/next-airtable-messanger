@@ -28,7 +28,7 @@ export default function ChatDetailed({ messages }: Props) {
     );
     let data = await res.json();
     let reval = await fetch(
-      `http://localhost:3000/api/revalidate?secret=a1aa1a&id=${query.id}`
+      `https://next-airtable-messanger.vercel.app/api/revalidate?secret=a1aa1a&id=${query.id}`
     );
     console.log(data);
   }
