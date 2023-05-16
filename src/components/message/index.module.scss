@@ -1,0 +1,26 @@
+.message {
+  background-color: aqua;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+
+  padding: 8px;
+  margin-top: 4px;
+  span {
+    font-size: 12px;
+  }
+
+  span {
+  }
+}
+
+.message_box {
+  display: flex;
+  align-items: center;
+}
+
+.right_message {
+  justify-content: flex-end !important;
+}
