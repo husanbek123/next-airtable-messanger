@@ -11,7 +11,6 @@ type Props = {
 };
 
 export default function ChatDetailed({ messages }: Props) {
-  console.log(messages);
   let { userID, user, setUserID } = useStore((state) => state);
   let { query } = useRouter();
 
@@ -19,16 +18,18 @@ export default function ChatDetailed({ messages }: Props) {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(InputRef.current?.value);
 
     let res = await fetch(
-      `https://my-next-airtable-messanger.vercel.app/api/createMessage?id=${
+      `http://localhost:3000/api/createMessage?id=${
         query.id
       }&owner_id=${userID}&owner_image=${
         user.user_image
       }&text=${InputRef.current?.value.toString()}`
     );
     let data = await res.json();
+    let reval = await fetch(
+      `http://localhost:3000/api/revalidate?secret=a1aa1a&id=${query.id}`
+    );
     console.log(data);
   }
 
@@ -69,7 +70,6 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
       },
     ],
   }).firstPage();
-  console.log(chatsRes);
 
   let messages = chatsRes.map((record) => ({
     ...record.fields,

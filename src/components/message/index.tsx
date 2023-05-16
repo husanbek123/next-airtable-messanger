@@ -18,7 +18,6 @@ export default function Message({
   id,
   owner_id,
 }: Props) {
-  console.log(id, owner_id);
 
   return (
     <div
