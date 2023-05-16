@@ -22,7 +22,7 @@ export default function ChatDetailed({ messages }: Props) {
     console.log(InputRef.current?.value);
 
     let res = await fetch(
-      `http://localhost:3000/api/createMessage?id=${
+      `https://my-next-airtable-messanger.vercel.app/api/createMessage?id=${
         query.id
       }&owner_id=${userID}&owner_image=${
         user.user_image
